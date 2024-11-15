@@ -9,6 +9,8 @@
 -Delay is in seconds.
 '''
 
+# http://192.168.8.186/move?speed=1&turn=0&t=2
+
 import RPi.GPIO as GPIO
 from time import sleep
 GPIO.setmode(GPIO.BCM)
@@ -37,17 +39,30 @@ class Motor():
         leftSpeed = speed-turn
         rightSpeed = speed+turn
 
-        if leftSpeed>100: leftSpeed =100
-        elif leftSpeed<-100: leftSpeed = -100
-        if rightSpeed>100: rightSpeed =100
-        elif rightSpeed<-100: rightSpeed = -100
+        if leftSpeed>100: 
+            leftSpeed =100
+        elif leftSpeed<-100: 
+            leftSpeed = -100
+        if rightSpeed>100: 
+            rightSpeed =100
+        elif rightSpeed<-100: 
+            rightSpeed = -100
+        
         #print(leftSpeed,rightSpeed)
         self.pwmA.ChangeDutyCycle(abs(leftSpeed))
         self.pwmB.ChangeDutyCycle(abs(rightSpeed))
-        if leftSpeed>0:GPIO.output(self.In1A,GPIO.HIGH);GPIO.output(self.In2A,GPIO.LOW)
-        else:GPIO.output(self.In1A,GPIO.LOW);GPIO.output(self.In2A,GPIO.HIGH)
-        if rightSpeed>0:GPIO.output(self.In1B,GPIO.HIGH);GPIO.output(self.In2B,GPIO.LOW)
-        else:GPIO.output(self.In1B,GPIO.LOW);GPIO.output(self.In2B,GPIO.HIGH)
+        if leftSpeed>0:
+            GPIO.output(self.In1A,GPIO.HIGH);
+            GPIO.output(self.In2A,GPIO.LOW)
+        else:
+            GPIO.output(self.In1A,GPIO.LOW);
+            GPIO.output(self.In2A,GPIO.HIGH)
+        if rightSpeed>0:
+            GPIO.output(self.In1B,GPIO.HIGH);
+            GPIO.output(self.In2B,GPIO.LOW)
+        else:
+            GPIO.output(self.In1B,GPIO.LOW);
+            GPIO.output(self.In2B,GPIO.HIGH)
         sleep(t)
 
     def stop(self,t=0):
