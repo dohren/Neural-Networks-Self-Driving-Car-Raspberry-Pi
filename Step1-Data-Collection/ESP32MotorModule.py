@@ -14,7 +14,7 @@ from time import sleep
 
 class Motor():
     def __init__(self,EnaA,In1A,In2A,EnaB,In1B,In2B):
-        self.url = "http://192.168.253.254"
+        self.url = "http://192.168.8.186"
 
 
     def move(self, speed=0.5, turn=0, t=0):
@@ -39,13 +39,13 @@ class Motor():
         sleep(t)
 
 def main():
-    motor.move(0.5,0,1)
+    motor.move(0.5,0,0.05)
     motor.stop(2)
-    motor.move(-0.5,0,1)
+    motor.move(-0.5,0,0.05)
     motor.stop(2)
-    motor.move(0,0.5,1)
+    motor.move(0,0.5,0.05)
     motor.stop(2)
-    motor.move(0,-0.5,1)
+    motor.move(0,-0.5,0.05)
     motor.stop(2)
 
 if __name__ == '__main__':

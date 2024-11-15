@@ -1,20 +1,20 @@
-import WebcamModule as wM
+import ESP32camModule as wM
 import DataCollectionModule as dcM
 import JoyStickModule as jsM
-import MotorModule as mM
+import ESP32MotorModule as mM
 import cv2
 from time import sleep
 
 
-maxThrottle = 0.25
+maxThrottle = 1
 motor = mM.Motor(2, 3, 4, 17, 22, 27)
 
 record = 0
+
 while True:
     joyVal = jsM.getJS()
-    #print(joyVal)
     steering = joyVal['axis1']
-    throttle = joyVal['o']*maxThrottle
+    throttle = joyVal['axis2']*-maxThrottle
     if joyVal['share'] == 1:
         if record ==0: print('Recording Started ...')
         record +=1
@@ -26,5 +26,6 @@ while True:
         dcM.saveLog()
         record = 0
 
+    print(throttle)
     motor.move(throttle,-steering)
     cv2.waitKey(1)

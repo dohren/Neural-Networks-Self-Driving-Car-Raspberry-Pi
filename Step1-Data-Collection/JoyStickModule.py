@@ -24,6 +24,7 @@ def getJS(name=''):
     for event in pygame.event.get():  # Analog Sticks
         if event.type == pygame.JOYAXISMOTION:
             axiss[event.axis] = round(event.value, 2)
+            # print(event.dict, axiss[event.axis], 'PRESSED')
         elif event.type == pygame.JOYBUTTONDOWN:  # When button pressed
             # print(event.dict, event.joy, event.button, 'PRESSED')
             for x, (key, val) in enumerate(buttons.items()):
@@ -44,9 +45,9 @@ def getJS(name=''):
 
 
 def main():
-    # print(getJS()) # To get all values
-    # sleep(0.05)
-    print(getJS('share'))  # To get a single value
+    print(getJS()) # To get all values
+    sleep(0.05)
+    # print(getJS('share'))  # To get a single value
     sleep(0.05)
 
 
