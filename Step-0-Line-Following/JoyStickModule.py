@@ -47,7 +47,7 @@ def getJS(name=''):
 def main():
     print(getJS()) # To get all values
     sleep(0.05)
-    # print(getJS('share'))  # To get a single value
+    print(getJS('share'))  # To get a single value
     sleep(0.05)
 
 
