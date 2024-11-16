@@ -1,2 +1,3 @@
 venv/
 DataCollected/
+**/__pycache__/

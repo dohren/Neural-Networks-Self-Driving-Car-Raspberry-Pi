@@ -6,8 +6,8 @@ const int r1 = 26, r2 = 27, l1 = 12, l2 = 14;
 const int speedr = 25, speedl = 13;
 
 // WiFi-Einstellungen
-const char* ssid = "ROS";
-const char* password = "robot123";
+const char* ssid = "xxx";
+const char* password = "xxxxx";
 
 WiFiServer server(80);
 
