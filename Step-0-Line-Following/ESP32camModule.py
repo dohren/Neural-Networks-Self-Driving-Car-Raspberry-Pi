@@ -3,6 +3,7 @@ import numpy as np
 import requests
 
 capture_url = "http://192.168.8.186:81/capture"
+capture_url = "http://192.168.253.254:81/capture"
 
 def getImg(display= False,size=[480,240]):
     response = requests.get(capture_url)

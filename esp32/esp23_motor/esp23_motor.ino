@@ -20,8 +20,8 @@ void move_rover(float speed, float turn, float duration) {
   float rightSpeed = speed + turn;
 
   // Begrenzung der Geschwindigkeit auf -100 bis 100
-  leftSpeed = constrain(leftSpeed, -100, 100);
-  rightSpeed = constrain(rightSpeed, -100, 100);
+  leftSpeed = constrain(leftSpeed, -200, 200);
+  rightSpeed = constrain(rightSpeed, -200, 200);
 
   // Linker Motor
   if (leftSpeed > 0) {
@@ -48,7 +48,7 @@ void move_rover(float speed, float turn, float duration) {
   // Wartezeit für die Dauer der Bewegung
   if (duration > 0) {
     delay(duration * 1000);
-    // Stoppe die Motoren nach Ablauf der Zeit
+    Stoppe die Motoren nach Ablauf der Zeit
     analogWrite(speedl, 0);
     analogWrite(speedr, 0);
   }

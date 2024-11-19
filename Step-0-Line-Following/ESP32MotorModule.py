@@ -15,7 +15,8 @@ from time import sleep
 class Motor():
     def __init__(self):
         self.cam_url = "http://192.168.8.186"
-        self.esp32_url = "http://192.168.8.189"
+        # self.esp32_url = "http://192.168.8.189"
+        self.esp32_url = "http://192.168.253.117"
 
     def move_cam(self, speed=0.5, turn=0, t=0.1):
         if speed > 0 and turn == 0:
@@ -37,7 +38,7 @@ class Motor():
         requests.get(full_url)
         sleep(t)
 
-    def move_esp32(self, speed=0.5, turn=0, t=0.1):
+    def move_esp32(self, speed=0.5, turn=0, t=0):
         # Erstelle die URL mit den dynamischen Parametern
         endpoint = f"/move?speed={speed}&turn={turn}&t={t}"
         full_url = self.esp32_url + endpoint

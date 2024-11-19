@@ -3,7 +3,7 @@ import numpy as np
 import ESP32camModule as wM
 import time
 
-threshold_value = 25
+threshold_value = 75
 
 def follow(img, display= False):
     # 1. Bild in Graustufen konvertieren
@@ -75,13 +75,15 @@ def follow(img, display= False):
 def find_threshold():
     global threshold_value
     time.sleep(0.5)
-    threshold_value = threshold_value + 1
+    threshold_value = threshold_value + 2
     print(threshold_value)
 
 
 if __name__ == '__main__':
+    threshold_value=0
     while True:
         img = wM.getImg(True, size=[240,120])
+
         find_threshold()
         print(follow(img, True))
         
