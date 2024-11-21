@@ -1,0 +1,13 @@
+1. Hyper-V Enable
+2. Admin Powershell
+3. dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+4. dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+5. restart
+6. wsl --set-default-version 2
+7. https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+8. wsl --install -d Ubuntu-22.04
+9. wsl -l -v
+10. wsl --set-default Ubuntu-22.04
+11. cd /mnt/c
+12. cd /mnt/c/Users/YourUsername/Desktop
+

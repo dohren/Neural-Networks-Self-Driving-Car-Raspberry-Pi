@@ -1,0 +1,31 @@
+// Install pip
+sudo apt-get update
+sudo apt-get install python3-pip
+
+// Install Cuda 12.3
+sudo wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cuda-toolkit-12-3
+
+// Install Cudnn cuDNN v8.9.7 (December 5th, 2023), for CUDA 12.x
+Register and Download manually:   https://developer.nvidia.com/downloads/compute/cudnn/secure/8.9.7/local_installers/12.x/cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz
+sudo tar -xvf cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz
+sudo cp cuda/include/cudnn*.h /usr/local/cuda-12.3/include
+sudo cp cuda/lib/libcudnn* /usr/local/cuda-12.3/lib64
+sudo chmod a+r /usr/local/cuda-12.3/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+
+// Set variables
+export LD_LIBRARY_PATH=/usr/local/cuda-12.3/lib64
+export CUDA_PATH=/usr/local/cuda-12.3
+export TF_CUDA_PATHS=/usr/local/cuda-12.3,/usr/local/cuda-12.3/lib64,/usr/local/cuda-12.3/include
+
+// Install tensorflow
+pip install tensorflow==2.15.0
+pip install tf-agents==0.19.0
+pip install --upgrade tf-agents
+pip install --upgrade tensorflow
+pip install tensorflow-probability[tf]
+pip install --upgrade tensorflow-probability
+
+

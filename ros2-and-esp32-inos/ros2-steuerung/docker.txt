@@ -1,0 +1,1 @@
+docker run -it --rm --net=host microros/micro-ros-agent:jazzy udp4 -p 8888 --dev

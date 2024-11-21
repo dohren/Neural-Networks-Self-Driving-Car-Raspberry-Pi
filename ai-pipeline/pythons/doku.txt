@@ -1,0 +1,15 @@
+--- car_model.py ---
+Hier ist das model das trainiert werden soll konfiguriert, sowie ein unit test.
+Hyperparameter können im Trainings loop gesetzt werden und müssen nicht an dem model
+direkt vorgenommen werden
+
+--- car_data.py ---
+Hier sind dataset creators sowie converter functions enthalten, um image data zu np.arrays
+umzuwandeln
+
+--- car_training.py ---
+Hier ist der trainingloop gespeichert. Hier können die Hyperparameter, sowie Trainingskonfiguratione
+angepasst werden. Führe dieses Script aus um das model zu trainieren. Das Ergebnis wird im selben
+directory gespeichert
+
+
