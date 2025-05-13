@@ -12,4 +12,5 @@ Hier ist der trainingloop gespeichert. Hier können die Hyperparameter, sowie Tr
 angepasst werden. Führe dieses Script aus um das model zu trainieren. Das Ergebnis wird im selben
 directory gespeichert
 
-
+--- car_model_trainer.ipynb ---
+Das hier ist das Juypter Google Colab project. In Google Colab, can das Project via "Datei -> Notebook hochladen" verwendet werden um das model zu trainieren

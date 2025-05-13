@@ -1,6 +1,8 @@
 import tensorflow as tf
 from tensorflow.keras.mixed_precision import set_global_policy
 from tensorflow.keras.models import load_model
+from tensorflow.keras.utils import get_custom_objects
+from tensorflow.keras.layers import Layer
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -21,6 +23,12 @@ if gpus:
     except RuntimeError as e:
         print(e)
 set_global_policy('mixed_float16')
+
+# H5 cusotm layer support
+class Cast(Layer):
+    def call(self, inputs):
+        return tf.cast(inputs, tf.float16)
+get_custom_objects().update({'Cast': Cast})
 
 
 
