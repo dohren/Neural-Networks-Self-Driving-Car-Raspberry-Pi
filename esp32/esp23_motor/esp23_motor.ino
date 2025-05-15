@@ -6,8 +6,8 @@ const int r1 = 26, r2 = 27, l1 = 12, l2 = 14;
 const int speedr = 25, speedl = 13;
 
 // WiFi-Einstellungen
-const char* ssid = "xxx";
-const char* password = "xxxxx";
+const char* ssid = "*******";
+const char* password = "*********";
 
 WiFiServer server(80);
 
@@ -48,7 +48,7 @@ void move_rover(float speed, float turn, float duration) {
   // Wartezeit für die Dauer der Bewegung
   if (duration > 0) {
     delay(duration * 1000);
-    Stoppe die Motoren nach Ablauf der Zeit
+    // Stoppe die Motoren nach Ablauf der Zeit
     analogWrite(speedl, 0);
     analogWrite(speedr, 0);
   }
