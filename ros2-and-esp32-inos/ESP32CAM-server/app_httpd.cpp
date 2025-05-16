@@ -220,6 +220,8 @@ static esp_err_t cmd_handler(httpd_req_t *req){
 
     int val = atoi(value);
     sensor_t * s = esp_camera_sensor_get();
+    s->set_vflip(s, 1);     // Bild vertikal spiegeln (Kamera war auf dem Kopf)
+    s->set_hmirror(s, 1);
     int res = 0;
 
     if(!strcmp(variable, "framesize")) {
@@ -466,8 +468,8 @@ void startCameraServer(){
         httpd_register_uri_handler(camera_httpd, &stop_uri); 
         httpd_register_uri_handler(camera_httpd, &left_uri);
         httpd_register_uri_handler(camera_httpd, &right_uri);
-        httpd_register_uri_handler(camera_httpd, &ledon_uri);
-        httpd_register_uri_handler(camera_httpd, &ledoff_uri);
+        // httpd_register_uri_handler(camera_httpd, &ledon_uri);
+        // httpd_register_uri_handler(camera_httpd, &ledoff_uri);
     }
 
     config.server_port += 1;
@@ -475,7 +477,9 @@ void startCameraServer(){
     Serial.printf("Starting stream server on port: '%d'", config.server_port);
     if (httpd_start(&stream_httpd, &config) == ESP_OK) {
         httpd_register_uri_handler(stream_httpd, &stream_uri);
+        httpd_register_uri_handler(stream_httpd, &capture_uri);
     }
+    
 }
 
 void WheelAct(int nLf, int nLb, int nRf, int nRb)

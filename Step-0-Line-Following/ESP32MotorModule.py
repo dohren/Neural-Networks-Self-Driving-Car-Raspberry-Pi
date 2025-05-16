@@ -15,8 +15,7 @@ from time import sleep
 class Motor():
     def __init__(self):
         self.cam_url = "http://192.168.8.186"
-        # self.esp32_url = "http://192.168.8.189"
-        self.esp32_url = "http://192.168.253.117"
+        self.esp32_url = "http://192.168.178.54"
 
     def move_cam(self, speed=0.5, turn=0, t=0.1):
         if speed > 0 and turn == 0:
