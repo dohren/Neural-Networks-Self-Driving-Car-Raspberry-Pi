@@ -28,7 +28,7 @@ class Motor:
             "turn": turn
         }
         self.client.publish(self.topic, json.dumps(command))
-        time.sleep(t)
+
 
     def stop(self, t=0):
         command = {
@@ -36,7 +36,6 @@ class Motor:
             "turn": 0
         }
         self.client.publish(self.topic, json.dumps(command))
-        time.sleep(t)
 
 def main():
     motor.move(1.1, 0, 2)

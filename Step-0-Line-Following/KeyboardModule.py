@@ -34,7 +34,9 @@ def getJS(name=''):
             exit()
 
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_1:
+                buttons['options'] = 1
+            elif event.key == pygame.K_UP:
                 buttons['up'] = 1
                 axis_state['y'] = -1.0
             elif event.key == pygame.K_DOWN:
