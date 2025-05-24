@@ -71,6 +71,9 @@ print("Create model...")
 model = create_model(input_dim, output_dim, dropout_rate, noise, learning_rate, scale)
 
 print("Create datasets...")
+
+# dataset_training_input, dataset_training_output = binary_image_dataset("training_data", "training_data/output_data.txt")
+# dataset_evaluation_input, dataset_evaluation_output = binary_image_dataset("validation_data", "validation_data/output_data.txt")
 dataset_training_input, dataset_training_output = binary_image_test_dataset(1000, (input_image_width, input_image_height), output_dim)
 dataset_evaluation_input, dataset_evaluation_output = binary_image_test_dataset(1000, (input_image_width, input_image_height), output_dim)
 
